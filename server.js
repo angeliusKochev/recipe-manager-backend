@@ -16,6 +16,15 @@ const port = process.env.PORT;
   }
  });
 
+ app.get("/hi", async function (req, res) {
+   try {
+     res.json({ success: "Hello!" });
+   } catch (error) {
+     console.error(error);
+     res.status(500).json({ error: "Server error" });
+   }
+ });
+
  app.listen(port, ()=>{
   console.log(`Server running on port ${port}`)
  })
